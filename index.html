@@ -6,6 +6,9 @@
 </head>
 <body>
   <script>
+      const playerSelection = 'Rock';
+      const computerSelection = computerPlay();
+      
       function computerPlay() {
           let number = Math.random();
           let pick;
@@ -20,6 +23,28 @@
               return pick;
           }
       }
+
+      function playRound(playerSelection, computerSelection) {
+          playerSelection = playerSelection.trim();
+          playerSelection = playerSelection.toLowerCase();
+          computerSelection = computerSelection.toLowerCase();
+
+          if (playerSelection === computerSelection) {
+              return 'It\'s a draw.';
+          } else if(playerSelection === 'rock' && computerSelection === 'paper') {
+              return 'Paper beats rock, you lost.'
+          } else if(PlayerSelection === 'rock' && computerSelection === 'scissors') {
+              return 'Rock beats scissors, you won!'
+          } else if(playerSelection === 'paper' && computerSelection === 'rock') {
+              return 'Paper beats rock, you won!'
+          } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
+              return 'Scissors beats paper, you lost.'
+          } else if(playerSelection === 'scissors' && computerSelection === 'paper') {
+              return 'Scissors beats paper, you won!'
+          } else if(playerSelection === 'scissors' && computerSelection === 'rock') {
+              return 'Rock beats scissors, you lost.'
+          }
+        }
   </script>
 </body>
 </html>
